@@ -99,22 +99,22 @@ class Solution:
 
 # Cool solution - 1 
 class Solution:
-def racecar(self, target: int) -> int:
-    
-    q = deque()
-    q.append((0,0,1))
-    while q:
-        m,p,s = q.popleft()
-        if p==target:
-            return m
-        rev = -1 if s>0 else 1
-		
-        q.append((m+1,p+s,s*2))
+    def racecar(self, target: int) -> int:
         
-        if (p+s<target and s<0) or (p+s>target and s>0):        # If you are back to the target and speed is reverse or if you are ahead of target and speed is positive then reverse the speed
-            q.append((m+1,p,rev))
-    
-    return -1
+        q = deque()
+        q.append((0,0,1))
+        while q:
+            m,p,s = q.popleft()
+            if p==target:
+                return m
+            rev = -1 if s>0 else 1
+            
+            q.append((m+1,p+s,s*2))
+            
+            if (p+s<target and s<0) or (p+s>target and s>0):        # If you are back to the target and speed is reverse or if you are ahead of target and speed is positive then reverse the speed
+                q.append((m+1,p,rev))
+        
+        return -1
 
 #Cool solution - 2
 class Solution:
